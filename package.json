@@ -1,0 +1,31 @@
+{
+  "name": "sbtaes",
+  "version": "0.0.1",
+  "description": "AES encryption and decryption command line tool",
+  "main": "index.js",
+  "bin": {
+    "sbtaes": "./bin/sbtaes.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/everygit/sbtaes.git"
+  },
+  "keywords": [
+    "AES",
+    "CLI"
+  ],
+  "author": "autin.sun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/everygit/sbtaes/issues"
+  },
+  "homepage": "https://github.com/everygit/sbtaes#readme",
+  "dependencies": {
+    "@xiaoerr/crypt": "^0.0.4",
+    "colors": "^1.4.0",
+    "readline-sync": "^1.4.10"
+  }
+}
