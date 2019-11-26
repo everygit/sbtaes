@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var readlineSync = require('readline-sync');
 var { aes } = require('@xiaoerr/crypt');
 var colors = require('colors');

@@ -4,7 +4,7 @@
   "description": "AES encryption and decryption command line tool",
   "main": "index.js",
   "bin": {
-    "sbtaes": "./bin/sbtaes.js"
+    "sbtaes": "./bin/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +26,7 @@
   "dependencies": {
     "@xiaoerr/crypt": "^0.0.4",
     "colors": "^1.4.0",
+    "commander": "^4.0.1",
     "readline-sync": "^1.4.10"
   }
 }
