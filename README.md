@@ -1,6 +1,8 @@
 # sbtaes
 
 [![image](https://img.shields.io/npm/v/sbtaes.svg)](https://www.npmjs.com/package/sbtaes)
+[![](https://img.shields.io/npm/l/sbtaes.svg)](https://www.npmjs.com/package/sbtaes)
+[![](https://img.shields.io/github/issues/everygit/sbtaes)](https://github.com/everygit/sbtaes/issues)
 
 AES encryption and decryption command line tool
 
