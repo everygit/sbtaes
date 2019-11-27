@@ -1,4 +1,7 @@
 # sbtaes
+
+[![image](https://img.shields.io/npm/v/sbtaes.svg)](https://www.npmjs.com/package/sbtaes)
+
 AES encryption and decryption command line tool
 
 ## ARGS
