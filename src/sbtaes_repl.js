@@ -13,7 +13,7 @@ var cmd;
 
 while (true) {
     // input
-    cmd = readlineSync.question("> ");
+    cmd = readlineSync.prompt();
 
     // trim
     cmd = cmd.trim();
