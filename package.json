@@ -1,6 +1,6 @@
 {
   "name": "sbtaes",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "AES encryption and decryption command line tool",
   "main": "index.js",
   "bin": {
