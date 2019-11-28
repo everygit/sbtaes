@@ -9,6 +9,18 @@ var pwd = readlineSync.question('please input aes password: '.yellow, {
 
 var aesIns = aes(pwd);
 
+var helps = [];
+
+helps.push(`${'help'.magenta}\t\t\tShow all operational commands`);
+helps.push(`${'show password'.magenta}\t\tShow current AES password`);
+helps.push(`${'change password'.magenta}\t\tModify the current AES password`);
+helps.push(`${'en [content]'.magenta}\t\tAES encrypts current content`);
+helps.push(`${'de [content]'.magenta}\t\tAES decrypts the current content`);
+helps.push(`${'clear'.magenta}\t\t\tClear console content`);
+helps.push(`${'quit or exit'.magenta}\t\tExit the app`);
+
+var helpStr = helps.join('\n');
+
 var cmd;
 
 while (true) {
@@ -28,14 +40,7 @@ while (true) {
     }
 
     if (cmd === 'help') {
-        console.log('help'.magenta + '\t\t\tShow all operational commands' + '\n' +
-            'show password'.magenta + '\t\tShow current AES password' + '\n' +
-            'change password'.magenta + '\t\tModify the current AES password' + '\n' +
-            'en [content]'.magenta + '\t\tAES encrypts current content' + '\n' +
-            'de [content]'.magenta + '\t\tAES decrypts the current content' + '\n' +
-            'clear'.magenta + '\t\t\tClear console content' + '\n' +
-            'quit or exit'.magenta + '\t\tExit the app'
-        );
+        console.log(helpStr);
         continue;
     }
 
