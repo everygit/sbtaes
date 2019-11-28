@@ -1,6 +1,6 @@
 var readlineSync = require('readline-sync');
 var { aes } = require('@xiaoerr/crypt');
-var colors = require('colors');
+require('colors');
 
 
 var pwd = readlineSync.question('please input aes password: '.yellow, {
@@ -21,67 +21,49 @@ helps.push(`${'quit or exit'.magenta}\t\tExit the app`);
 
 var helpStr = helps.join('\n');
 
-var cmd;
+var invaildCommandStr = 'Invalid command, you can use help to see the specific usage!'.red;
 
-while (true) {
-    // input
-    cmd = readlineSync.prompt();
-
-    // trim
-    cmd = cmd.trim();
-
-    if (cmd === "") {
-        continue;
-    }
-
-    // quit
-    if(cmd === "quit" || cmd === "exit") {
-        break;
-    }
-
-    if (cmd === 'help') {
+readlineSync.promptCLLoop({
+    help() {
         console.log(helpStr);
-        continue;
-    }
-
-    // show password
-    if (cmd === 'show password') {
-        console.log(pwd.gray);
-        continue;
-    }
-
-    // change password
-    if (cmd === 'change password') {
-        pwd = readlineSync.question('please input aes password: '.yellow, {
-            hideEchoBack: true
-        });
-        aesIns = aes(pwd);
-        console.log('password has changed!'.green);
-        continue;
-    }
-
-    if (cmd === "clear" || cmd === "cls") {
-        process.stdout.write('\033[2J');
-        process.stdout.write('\033[0f');
-        continue;
-    }
-
-    reg = /^(en|de) +(.+)$/.exec(cmd);
-    if (reg) {
-        try {
-            if (reg[1] === "en") {
-                console.log('encrypt result: \n'.yellow + aesIns.encrypt(reg[2]).green);
-            } else {
-                console.log('decrypt result: \n'.yellow + aesIns.decrypt(reg[2]).green);
-            }
-        } catch(e) {
-            console.log('Error Message: '.yellow + e.message.red);
+    },
+    show(s) {
+        if (s === 'password') {
+            console.log(pwd.gray);
+        } else {
+            console.log(invaildCommandStr);
         }
-        
-        continue;
+    },
+    change(s) {
+        if (s === 'password') {
+            pwd = readlineSync.question('please input aes password: '.yellow, {
+                hideEchoBack: true
+            });
+            aesIns = aes(pwd);
+            console.log('password has changed!'.green);
+        } else {
+            console.log(invaildCommandStr);
+        }
+    },
+    en(s) {
+        var p = [...arguments].join('\n');
+        try {
+            console.log('encrypt result: \n'.yellow + aesIns.encrypt(p).green);
+        } catch(ex) {
+            console.log('Error Message: '.yellow + ex.message.red);
+        }
+       
+    },
+    de() {
+        var p = [...arguments].join('\n');
+        try {
+            console.log('decrypt result: \n'.yellow + aesIns.decrypt(p).green);
+        } catch(ex) {
+            console.log('Error Message: '.yellow + ex.message.red);
+        }
     }
-
-    console.log('Invalid command, you can use help to see the specific usage!'.red);
-}
+}, {
+    limitMessage: invaildCommandStr
+});
 
 console.log("goodbye");
