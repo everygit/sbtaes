@@ -1,6 +1,6 @@
 {
   "name": "sbtaes",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "AES encryption and decryption command line tool",
   "main": "index.js",
   "bin": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/everygit/sbtaes#readme",
   "dependencies": {
-    "@xiaoerr/crypt": "^0.0.4",
+    "@xiaoerr/crypt": "latest",
     "colors": "^1.4.0",
     "commander": "^4.0.1",
     "readline-sync": "^1.4.10"
